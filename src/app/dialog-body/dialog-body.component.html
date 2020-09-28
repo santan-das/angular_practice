@@ -1,0 +1,31 @@
+<h2 mat-dialog-title>This is a Dialog title</h2>
+
+
+<!-- dialog-modal-example.component.html -->
+<h2>Dialog Modal</h2>
+<b>Value From Page</b>:
+<div>
+  <mat-form-field>
+    <input matInput [(ngModel)]="name" placeholder="Enter value to send back">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput [(ngModel)]="email" placeholder="Enter email send back">
+  </mat-form-field>
+
+<!-- 
+  <mat-label class="image-upload-container btn btn-bwm">
+    <button mat-raised-button color="primary" class="valgn_mddl" (click)="fileInput.click()">
+      <mat-icon>attach_file</mat-icon>Upload Image</button>
+  <input hidden accept="image/*" type="file" #fileInput (change)="processFile($event)">
+  <div class="clear_fix"></div>
+  <img class="valgn_mddl mxwdt_350" src="{{logoPath}}" />
+  </mat-label> -->
+
+
+</div>
+<div>
+  <button mat-raised-button (click)="updateclose()">Update</button>
+
+  <button mat-raised-button (click)="closedialog()">Close</button>
+</div>

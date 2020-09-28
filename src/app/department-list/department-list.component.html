@@ -1,0 +1,136 @@
+<!-- <p>department-list works!</p> -->
+
+<table border="2px">
+    <tr *ngFor="let department of departments">
+        <td (click)="getDetails(department.id)">{{department.id}}</td>
+        <td>{{department.title}}</td>
+        <td>{{department.email}}</td>
+    </tr>
+
+    <!-- <mat-paginator [length]="num_dealer_data"
+              [pageSize]="pageSize"
+              [pageSizeOptions]="[5, 10, 25, 100]" (page)="getServerData($event)">
+</mat-paginator> -->
+</table>
+
+
+<!-- fjdkf  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+  
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <h3>Column 1</h3>
+      <div class="example-container">
+        <mat-form-field>
+          <input matInput placeholder="Input">
+        </mat-form-field>
+      
+        <mat-form-field>
+          <textarea matInput placeholder="Textarea"></textarea>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-select placeholder="Select">
+            <mat-option value="option">Option</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        
+        <div class="example-button-row">
+          <button mat-button>Basic</button>
+          <button mat-button color="primary" (click)="getData()">Primary</button>
+        </div>
+       
+      
+      </div>
+      
+      <!-- <form #departmentFrm="ngForm"  (ngSubmit)="departmentFrm.form.valid && onSubmit(departmentFrm.value)" name="departmentFrm">
+    
+        <div class="form-group">  
+          <label>  
+            Name:  
+          </label>  
+          <input type="text" class="form-control"  name="name" [(ngModel)]="user.name" #name="ngModel" value="{{name}}"/>  
+        </div> 
+      <div class="form-group">  
+        <label>  
+          Email:  
+        </label>  
+        <input type="text" class="form-control"   name="email" [(ngModel)]="user.email" [ngClass]="{ 'is-invalid': departmentFrm.submitted && email.invalid }"  #email="ngModel" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required  value="{{mail}}"/>  
+      </div>  
+    
+      <div *ngIf="departmentFrm.submitted && email.invalid">
+        <div *ngIf="email.errors.required">Email is required</div>
+        <div *ngIf="email.errors.email">Enter a valid email address</div>
+        </div>
+      <div class="form-group">  
+        <label>  
+          Title:  
+        </label>  
+        <input type="text" class="form-control"  name="deptxt" [(ngModel)]="user.deptxt" #deptxt="ngModel" value="{{deptname}}"/>  
+      </div> 
+      <div class="form-group">  
+        <button class="btn btn-dark">Submit</button>  
+      </div>  
+      
+    </form> -->
+    </div>
+    <div class="col-sm-4">
+      <h3>Column 2</h3>
+      <form [formGroup]="userprofileForm" (ngSubmit)="submitUser()">
+  
+        <div class="form-group">  
+          <label>  
+            Email:  
+          </label>  
+          <input type="text" class="form-control"   name="email" formControlName="useremail" />  
+          
+        </div>  
+      
+        <div class="form-group">  
+          <label>  
+            Name:  
+          </label>  
+          <input type="text" class="form-control"   name="firstname" formControlName="firstname" />  
+        </div>
+      
+        <div class="form-group">  
+          <label>  
+            Title:  
+          </label>  
+          <select  name="titles" formControlName="titles" class="form-control" >
+            <option *ngFor="let option of options" [value]="2" [selected]="true">
+              {{option.name}}
+            </option>
+          </select>
+        </div>
+      
+        <div class="form-group">  
+          <button class="btn btn-dark" [disabled]="!userprofileForm.valid" type="submit">Submit</button>  
+        </div>  
+      
+      </form>
+    </div>
+    <div class="col-sm-4">
+      <h3>Column 3</h3>        
+      
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

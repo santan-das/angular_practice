@@ -1,0 +1,122 @@
+<form [formGroup]="form" (ngSubmit)="submitProduct()">
+
+
+<div class="example-container">
+  <mat-form-field>
+    <input matInput placeholder="Name"  name="name" formControlName="name">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Email"  name="email" [(ngModel)]="defaultemail" formControlName="email">
+  </mat-form-field>
+
+
+  <mat-form-field>
+    <textarea matInput placeholder="Notes" name="description" formControlName="description"></textarea>
+  </mat-form-field>
+
+  
+    <h3>Choose File</h3>            
+            <div class="form-group">
+                <input type="file" name="image" (change)="fileProgress($event)" />
+            </div>
+            <div *ngIf="fileUploadProgress">
+                Upload progress: {{ fileUploadProgress }}
+            </div>
+            <div class="image-preview mb-3" *ngIf="previewUrl">
+                <img [src]="previewUrl" height="100" />                 
+            </div>
+ 
+            <div class="mb-3" *ngIf="uploadedFilePath">
+                {{uploadedFilePath}}
+            </div>
+ 
+
+
+  <mat-form-field>
+    <mat-select placeholder="Select" [(ngModel)]="defaultValue" formControlName="gender">
+      <mat-option value="AM">AM</mat-option>
+      <mat-option value="PM">PM</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+
+
+</div>
+
+<div class="Btns2" >
+  <button mat-raised-button color="primary">
+      <mat-icon>check_circle_outline</mat-icon>
+      Save
+    </button>
+
+    <!-- <a href="http://127.0.0.1:8000/api/pdfview/1/1" mat-raised-button class="btn_color">
+      <mat-icon>save_alt</mat-icon>
+      Download 
+    </a> -->
+    <button (click)="getRawData()">get raw data </button>
+</div>
+<!-- {{rawlist}} -->
+
+</form>
+<table mat-table [dataSource]="OptionDataSuce" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- Position Column -->
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef> No. </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef> email </th>
+      <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+    </ng-container>
+  
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="title">
+      <th mat-header-cell *matHeaderCellDef> title </th>
+      <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="user_image">
+      <th mat-header-cell *matHeaderCellDef> UserImage </th>
+      <td mat-cell *matCellDef="let element"> 
+        <div *ngIf="element.user_image !='no image';else noimage">
+        <img [src]="element.user_image" height="50" width="50" />   
+      </div>
+      <ng-template #noimage>
+        <div>N/A</div>
+
+    </ng-template>
+      
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef> Action </th>
+      <td mat-cell *matCellDef="let element">  <mat-icon (click)="editDetails(element.id,element.name,element.email)" matTooltip="Edit">edit</mat-icon> </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    <!-- <md-paginator #paginator
+    [length]="length"
+    [pageIndex]="pageIndex"
+    [pageSize]="pageSize"
+    [pageSizeOptions]="[5, 10, 25, 100]"
+    (page)="pageEvent = getServerData($event)"
+    >
+  </md-paginator>  -->
+  </table>
+ 
+  

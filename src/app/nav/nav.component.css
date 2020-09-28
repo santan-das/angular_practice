@@ -1,0 +1,24 @@
+header{
+    background-color: aquamarine;
+    nav{
+        justify-self: right;
+
+        ul{
+            list-style-type: none;
+            margin: 0; padding: 0;
+            li{
+                float: left;
+                a{
+                    padding: 1.5em;
+                    text-transform: uppercase;
+                }
+            }
+        }
+
+    }
+    
+}
+
+.logo {
+    font-weight: bold;
+}

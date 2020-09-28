@@ -1,0 +1,9 @@
+<!-- <div class="container" id="print-section">
+    <object ng-show="content" [data]="samplepdf" style="width: 100%; height:100%;">
+    </object><div class="pp_block_footer" style="text-align: right"><button mat-raised-button class="btn_color" (click)="closeClick()">Close</button><button printSectionId="print-section" ngxPrint>print</button> </div></div> -->
+
+    <div class="container" style="width: 100%; height:100%;">
+        <div id="print-section" [innerHTML]=samplepdf>
+        </div>
+        <button mat-raised-button class="btn_color" (click)="closeClick()">Close</button><button mat-raised-button class="btn_color" printSectionId="print-section" ngxPrint>print</button> 
+    </div>
